@@ -19,6 +19,7 @@ class CreateProdutosTable extends Migration
             $table->integer('qtd');
             $table->float('precoUnitario');
             $table->float('precoVenda');
+            $table->timestamps();
         });
     }
 

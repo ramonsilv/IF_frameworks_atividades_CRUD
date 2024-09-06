@@ -21,7 +21,7 @@ class ProdutoController extends Controller
     public function index(): view
     {
         //
-        $produtos = Produto::lastest()->paginate(5);
+        $produtos = Produto::latest()->paginate(5);
 
         return view('produtos.index', compact('produtos'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
@@ -98,7 +98,7 @@ class ProdutoController extends Controller
 
         $produto->update($request->all());
 
-        return redirect()->route('produto.index')
+        return redirect()->route('produtos.index')
             ->with('success', 'Produto atualizado com sucesso.');
     }
 
@@ -112,7 +112,7 @@ class ProdutoController extends Controller
     {
         $produto->delete();
 
-        return redirect()->route('produto')
+        return redirect()->route('produtos.index')
             ->with('success', 'Produto excluido com sucesso.');
     }
 }
